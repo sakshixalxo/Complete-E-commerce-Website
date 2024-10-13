@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Navbar.css' 
+import { Link } from 'react-router-dom';
+
 
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
@@ -15,14 +17,14 @@ const Navbar = () => {
          <p>STYLE UP</p>
       </div>
       <ul className='nav-menu'>
-        <li onClick={() =>{setmenu("shop")}}>SHOP {menu==="shop"?<hr/>:<></>}</li>
-        <li onClick={() =>{setmenu("mens")}}>MEN {menu==="mens"?<hr/>:<></>}</li>
-        <li onClick={() =>{setmenu("womens")}}>WOMEN {menu==="womens"?<hr/>:<></>}</li>
-        <li onClick={() =>{setmenu("kids")}}>KID {menu==="kids"?<hr/>:<></>}</li>
+        <li onClick={() =>{setmenu("shop")}}><Link className="nav-link"to='/'>SHOP </Link>{menu==="shop"?<hr/>:<></>}</li>
+        <li onClick={() =>{setmenu("mens")}}><Link className="nav-link" to='/mens'>MEN</Link> {menu==="mens"?<hr/>:<></>}</li>
+        <li onClick={() =>{setmenu("womens")}}><Link className="nav-link" to='/womens'>WOMEN</Link> {menu==="womens"?<hr/>:<></>}</li>
+        <li onClick={() =>{setmenu("kids")}}><Link className="nav-link" to='/kids'>KID</Link>{menu==="kids"?<hr/>:<></>}</li>
         </ul>
            <div className='nav-login-cart'>
-         <button>Login</button>
-         <img src={cart_icon} alt="" />
+          <Link to='/login'><button>Login</button></Link>
+          <Link to='/cart'><img src={cart_icon} alt="" /></Link>
          <div className="nav-cart-count">0</div>
       </div>
     </div>
